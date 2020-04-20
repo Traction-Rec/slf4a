@@ -2,7 +2,7 @@
 
 The Simple Logging Facade for Apex (SLF4A) intends to be the standard method for logging in Salesforce Apex applications.
 
-Why use SLF4A?
+## Why use SLF4A?
 
 - Quickly swap out logging implementations
 	- use the simple logging framework included in slf4a for initial development
@@ -10,7 +10,7 @@ Why use SLF4A?
 - Increase portability 
 	- build small utility libraries for wide distribution that integrate with the end-user logging framework
 
-The priorities of slf4a are:
+## The priorities of slf4a are:
 
 - Portablity
 	- As a unlocked second generation package it is easy to add slf4a to an org and configure it
@@ -24,13 +24,13 @@ The priorities of slf4a are:
 - Efficiency
 	- only serialize when necessary
 
-# Packaging
+## Packaging
 
 sfdx force:package:create --name slf4a_test --description "Testing SLF4A package" --packagetype Unlocked --targetdevhubusername slf4a-dev-hub
 
 sfdx force:package:version:create --skipvalidation --package slf4a_test --targetdevhubusername slf4a-dev-hub --installationkeybypass
 
-# TODO 
+## TODO 
 	- implement missing marker methods?
 	- basic marker tests
 	- finish basic logger tests
