@@ -2,16 +2,16 @@
     "packageDirectories": [
         {
             "path": "src",
-            "default": true,
-            "package": "slf4a_test",
-            "versionName": "VERSION 1",
-            "versionNumber": "1.0.0.NEXT"
+            "package": "slf4a",
+            "versionName": "ver 0.1",
+            "versionNumber": "0.1.0.NEXT",
+            "default": true
         }
     ],
-    "namespace": "slf4a_test",
+    "namespace": "slf",
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "48.0",
     "packageAliases": {
-        "slf4a_test": "0Ho5w000000TN1eCAG"
+        "slf4a": "0Ho5w000000TN2ICAW"
     }
 }
