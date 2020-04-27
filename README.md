@@ -26,9 +26,11 @@ The Simple Logging Facade for Apex (SLF4A) intends to be the standard method for
 
 ## Packaging
 
-`sfdx force:package:create --name slf4a_test --description "Testing SLF4A package" --packagetype Unlocked --targetdevhubusername slf4a-dev-hub@slf4a.com -r ./src`
+`sfdx force:package:create --name slf4a --description "Simple Logging Framework For Apex" --packagetype Unlocked --targetdevhubusername slf4a-dev-hub@slf4a.com -r ./src`
 
-`sfdx force:package:version:create --skipvalidation --package slf4a_test --targetdevhubusername slf4a-dev-hub@slf4a.com --installationkeybypass`
+Don't skip validation or the package will be created without a namespace.
+
+`sfdx force:package:version:create --package slf4a --targetdevhubusername slf4a-dev-hub@slf4a.com --installationkeybypass -w 120`
 
 ## TODO 
 	- implement missing marker methods?

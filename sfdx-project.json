@@ -12,6 +12,7 @@
     "sfdcLoginUrl": "https://login.salesforce.com",
     "sourceApiVersion": "48.0",
     "packageAliases": {
-        "slf4a": "0Ho5w000000TN2ICAW"
+        "slf4a": "0Ho5w000000TN2ICAW",
+        "slf4a@0.1.0-1": "04t5w0000031h5KAAQ"
     }
 }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Priority__c</fullName>
+    <description>The priority of this SLF4A service provider (highest priority will be the used framework)</description>
+    <externalId>false</externalId>
+    <fieldManageability>DeveloperControlled</fieldManageability>
+    <inlineHelpText>The priority of this SLF4A service provider (highest priority will be the used framework)</inlineHelpText>
+    <label>Service Provider Priority</label>
+    <required>true</required>
+    <type>Number</type>
+    <scale>0</scale>
+    <precision>4</precision>
+    <unique>false</unique>
+</CustomField>
