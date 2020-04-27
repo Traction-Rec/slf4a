@@ -23,8 +23,9 @@ global with sharing class LoggerFactory {
 	private static SLF4AServiceProvider getServiceProvider() {
 		SLF4AServiceProvider provider;
 		Framework__mdt framework;
+		
 		try {
-			List<Framework__mdt> frameworks = [SELECT Service_Provider_Class_Name__c FROM Framework__mdt ORDER BY Priority__c DESC LIMIT 1];
+			List<Framework__mdt> frameworks = [SELECT Service_Provider_Class_Name__c, slf__Priority__c FROM Framework__mdt ORDER BY Priority__c DESC LIMIT 1];
 			if (!frameworks.isEmpty()) {
 				framework = frameworks[0];
 				provider =	(SLF4AServiceProvider) Type.forName(

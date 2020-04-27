@@ -2,7 +2,7 @@
 private class LoggerFactoryTest {
 		@IsTest
 		static void getLogger() {
-			System.assertNotEquals(null, LoggerFactory.getLogger('test'));
-			System.assertNotEquals(null, LoggerFactory.getLogger(LoggerFactoryTest.class));
+			System.assert(LoggerFactory.getLogger('test') instanceof BasicLogger);
+			System.assert(LoggerFactory.getLogger(LoggerFactoryTest.class) instanceof BasicLogger);
 		}
 }
