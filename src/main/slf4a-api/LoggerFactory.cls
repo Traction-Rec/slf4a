@@ -25,9 +25,11 @@ global with sharing class LoggerFactory {
 		Framework__mdt framework;
 		
 		try {
-			List<Framework__mdt> frameworks = [SELECT Service_Provider_Class_Name__c, slf__Priority__c FROM Framework__mdt ORDER BY Priority__c DESC LIMIT 1];
+			// There are some problems with ordering MDT https://success.salesforce.com/issues_view?id=a1p3A0000001BreQAE
+			// List<Framework__mdt> frameworks = [SELECT Service_Provider_Class_Name__c, slf__Priority__c FROM Framework__mdt ORDER BY Priority__c DESC LIMIT 1];
+			List<Framework__mdt> frameworks = [SELECT Service_Provider_Class_Name__c, slf__Priority__c FROM Framework__mdt ORDER BY Priority__c DESC];
 			if (!frameworks.isEmpty()) {
-				framework = frameworks[0];
+				framework = getHighestPriority(frameworks);
 				provider =	(SLF4AServiceProvider) Type.forName(
 					framework.Service_Provider_Class_Name__c
 				).newInstance();
@@ -41,10 +43,22 @@ global with sharing class LoggerFactory {
 			System.debug(LoggingLevel.ERROR, 'cause: ' + e.getCause());
 			System.debug(LoggingLevel.ERROR, 'stacktrace: ' + e.getStacktraceString());
 		} finally {
-			System.debug(LoggingLevel.WARN, 'falling back to default basic logger framework');
-			provider = new BasicLoggerServiceProvider();
+			if (provider == null) {
+				System.debug(LoggingLevel.WARN, 'falling back to default basic logger framework');
+				provider = new BasicLoggerServiceProvider();
+			}
 		}
 		provider.initialize();
 		return provider;
+	}
+
+	private static Framework__mdt getHighestPriority(List<Framework__mdt> frameworks) {
+		Framework__mdt highestPriority = frameworks[0];
+		for (Integer i = 1; i < frameworks.size(); i++) {
+			if (highestPriority.Priority__c < frameworks[i].Priority__c) {
+				highestPriority = frameworks[i];
+			}
+		}
+		return highestPriority;
 	}
 }

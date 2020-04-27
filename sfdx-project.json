@@ -13,6 +13,9 @@
     "sourceApiVersion": "48.0",
     "packageAliases": {
         "slf4a": "0Ho5w000000TN2ICAW",
-        "slf4a@0.1.0-1": "04t5w0000031h5KAAQ"
+        "slf4a@0.1.0-1": "04t5w0000031h5KAAQ",
+        "slf4a@0.1.0-2": "04t5w000003LW8wAAG",
+        "slf4a@0.1.0-3": "04t5w000003LYwWAAW",
+        "slf4a@0.1.0-4": "04t5w000003LZTiAAO"
     }
 }
